@@ -1,0 +1,6 @@
+#dependencies
+node_modules/
+# local variables
+.env
+
+.idea
