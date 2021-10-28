@@ -18,11 +18,11 @@ const BasketItem = sequelize.define('basket_items',{
 })
 
 const Item = sequelize.define('item',{
-    id: {type: DataTypes.INTEGER, primaryKey:true, autoIncrement:true},
-    name : {type: DataTypes.STRING, unique: true, allowNull:false},
-    price : {type: DataTypes.INTEGER},
-    rating : {type: DataTypes.INTEGER, defaultValue: 0},
-    img : {type: DataTypes.STRING, allowNull:false},
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    name: {type: DataTypes.STRING, unique: true, allowNull: false},
+    price: {type: DataTypes.INTEGER, allowNull: false},
+    rating: {type: DataTypes.INTEGER, defaultValue: 0},
+    img: {type: DataTypes.STRING, allowNull: false},
 })
 
 const Type = sequelize.define('type',{
@@ -71,7 +71,7 @@ ItemRating.belongsTo(Item)
 Item.hasMany(BasketItem)
 BasketItem.belongsTo(Item)
 
-Item.hasMany(ItemInfo)
+Item.hasMany(ItemInfo,{as:'info'})
 ItemInfo.belongsTo(Item)
 
 Type.belongsToMany(Brand , {through: TypeBrand})

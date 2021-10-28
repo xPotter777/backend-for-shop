@@ -10,6 +10,6 @@ const router = new Router()
 router.use('/user',userRouter)
 router.use('/type', typeRouter)
 router.use('/brand', brandRouter)
-router.use('/device', itemRouter)
+router.use('/items', itemRouter)
 
 module.exports = router
