@@ -33,8 +33,10 @@ class ItemControllers {
         }
     }
 
-    async getAll(req, res, limit = 9, page = 1) {
-        const {brandId, typeId} = req.query
+    async getAll(req, res) {
+        let {brandId, typeId, limit, page} = req.query
+        limit = limit || 9
+        page = page || 1
         let offset = page * limit - limit
 
         let items
