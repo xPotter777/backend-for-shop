@@ -45,11 +45,8 @@ class UserControllers {
     }
 
     async isAuth(req, res, next) {
-    const {id} = req.query
-        if(!id) {
-            return next(ApiError.badRequest('No id given'))
-        }
-        res.json({message:req.query})
+        const token = generateJwt(req.user.email, req.user.role, req.user.id)
+        return res.json({token})
     }
 }
 
